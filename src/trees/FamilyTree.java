@@ -68,8 +68,10 @@ public class FamilyTree
             ArrayList<TreeNode> ancestors = new ArrayList<>();
             
             for(TreeNode child: children) {
-            	if(child.parent.parent != null) {
-            		ancestors.add(child.parent.parent);
+            	TreeNode tempParent = child;
+            	while(tempParent.parent != null) {
+            		tempParent = tempParent.parent;
+            		ancestors.add(tempParent);
             	}
             }
             // ?????  Collect ancestors of this TreeNode into the array list. HINT: going up
